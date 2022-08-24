@@ -8,40 +8,16 @@ import rigoImage from "../../img/rigo-baby.jpg";
 //create your first component
 const Home = () => {
 	const [color1,setColor1]= useState(""); 
-	const [color2,setColor2]= useState("");
-	const [color3,setColor3]= useState("");
-
-	function colores() {
-		if(color1 === "") {
-			setColor1("shadow-lg")
-		} else if(color2 === "shadow-lg" || color3 === "shadow-lg") {
-			setColor2("")
-			setColor3("")
-		}
-		if(color2 === "") {
-			setColor2("shadow-lg")
-		} else if(color1 === "shadow-lg" || color3 === "shadow-lg") {
-			setColor1("")
-			setColor3("")
-		}
-		if(color3 === "") {
-			setColor3("shadow-lg")
-		}else if(color2 === "shadow-lg" || color1 === "shadow-lg") {
-			setColor2("")
-			setColor1("")
-		}
-	}
-
 	return (
-		<div className="text-center">
-		<div className="card justify-content-center" style={{width: "18rem"}}>
-  			<div className="card-body" style={{height: "350px", background: "grey"}}>
-				<div className={"rounded-circle bg-danger " + color1} style={{width: "100%", height: "100px"}} onClick={colores}> </div>
-				<div className={"rounded-circle bg-warning " + color2} style={{width: "100%", height: "100px"}} onClick={colores}> </div>
-				<div className={"rounded-circle bg-success " + color3} style={{width: "100%", height: "100px"}} onClick={colores}> </div>
+	<div className="text-center">
+		<div className="card" style={{width: "18rem"}}>
+  			<div className="card-body justify-content-center" style={{height: "450px", background: "grey"}}>
+				<div className={"rounded-circle bg-danger " + (color1 === "bg-danger" ? "shadow-lg" : "")} style={{width: "100%", height: "130px"}} onClick={()=>setColor1("bg-danger")}> </div>
+				<div className={"rounded-circle bg-warning " + (color1 === "bg-warning"? "shadow-lg" : "")} style={{width: "100%", height: "130px"}} onClick={()=>setColor1("bg-warning")}> </div>
+				<div className={"rounded-circle bg-success " + (color1 === "bg-success" ? "shadow-lg" : "")} style={{width: "100%", height: "130px"}} onClick={()=>setColor1("bg-success")}> </div>
 			</div>
 		</div>
-		</div>
+	</div>
 	)
 };
 
